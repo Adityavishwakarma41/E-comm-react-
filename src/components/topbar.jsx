@@ -1,6 +1,16 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { add } from '../redux/strSlice';
 
 export default function Topbar() {
+    const str = useSelector((store)=>store.str.value)
+    const dispatch = useDispatch()
+    console.log(str);
+
+    function send(){
+        dispatch(add("heello"))
+    }
+
     return (
         <>
             <div className="container-fluid">
@@ -72,10 +82,10 @@ export default function Topbar() {
                             <i className="fas fa-heart text-primary" />
                             <span className="badge">0</span>
                         </a>
-                        <a href="" className="btn border">
+                        <button  className="btn border" onClick={send}>
                             <i className="fas fa-shopping-cart text-primary" />
-                            <span className="badge">0</span>
-                        </a>
+                            <span className="badge">{str?.length}</span>
+                        </button>
                     </div>
                 </div>
             </div>

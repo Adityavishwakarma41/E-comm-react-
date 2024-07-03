@@ -22,7 +22,7 @@ function App() {
     async function callApi() {
         let product = await getRequest(Urls.getAllProducts)
         if (product) {
-            setAllProducts(product)
+            setAllProducts(product.products)
         }
         let category = await getRequest(Urls.getAllCategory)
         if (category) {
@@ -30,6 +30,7 @@ function App() {
         }
     }
 
+    console.log(allCategory);
     useEffect(() => {
         callApi()
     }, [])
@@ -45,7 +46,7 @@ function App() {
         <Route path='/' element={<PublicRoute allCategory={allCategory} />}>
           <Route index element={<HomePage allCategory={allCategory} allProducts={allProducts} />} />
           <Route path='shop' element={<Layout />} >
-            <Route index element={<ShopPage />} />
+            <Route index element={<ShopPage allProducts={allProducts} />} />
             <Route path=':id' element={<ProductDetails />} />
           </Route>
           <Route path='cart' element={<CartPage />} />

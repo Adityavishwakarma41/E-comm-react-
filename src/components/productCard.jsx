@@ -3,10 +3,10 @@ import React from 'react'
 export default function ProductCard({data}) {
     return (
         <>
-            <div className="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div className="col-lg-4 col-md-4 col-sm-6 pb-1">
                 <div className="card product-item border-0 mb-4">
                     <div className="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                        <img className="img-fluid w-100" src={data.images[0]} alt={data.title} loading='lazy'/>
+                        <img className="img-fluid w-100" src={data?.thumbnail} alt={data.title} loading='lazy'/>
                     </div>
                     <div className="card-body border-left border-right text-center p-0 pt-4 pb-3">
                         <h6 className="text-truncate mb-3">{data.title}</h6>
