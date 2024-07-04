@@ -12,6 +12,8 @@ import ProductDetails from './pages/publicPage/productDetails'
 import ContactPage from './pages/publicPage/contactPage'
 import {Urls} from "./webClient/apiUrls"
 import { getRequest } from './webClient/apiClient'
+import { ToastContainer } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const path = useLocation().pathname
@@ -61,6 +63,7 @@ function App() {
         {/* end */}
 
       </Routes>
+      <ToastContainer/>
     </>
   )
 }
