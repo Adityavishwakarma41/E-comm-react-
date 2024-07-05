@@ -10,32 +10,33 @@ import { useEffect, useState } from 'react'
 import Layout from './components/layout'
 import ProductDetails from './pages/publicPage/productDetails'
 import ContactPage from './pages/publicPage/contactPage'
-import {Urls} from "./webClient/apiUrls"
+import { Urls } from "./webClient/apiUrls"
 import { getRequest } from './webClient/apiClient'
 import { ToastContainer } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
+import LoginPage from './pages/publicPage/loginPage'
 
 function App() {
   const path = useLocation().pathname
 
   const [allProducts, setAllProducts] = useState()
-    const [allCategory,setAllCategory] = useState()
+  const [allCategory, setAllCategory] = useState()
 
-    async function callApi() {
-        let product = await getRequest(Urls.getAllProducts)
-        if (product) {
-            setAllProducts(product.products)
-        }
-        let category = await getRequest(Urls.getAllCategory)
-        if (category) {
-            setAllCategory(category)
-        }
+  async function callApi() {
+    let product = await getRequest(Urls.getAllProducts)
+    if (product) {
+      setAllProducts(product.products)
     }
+    let category = await getRequest(Urls.getAllCategory)
+    if (category) {
+      setAllCategory(category)
+    }
+  }
 
-    console.log(allCategory);
-    useEffect(() => {
-        callApi()
-    }, [])
+  console.log(allCategory);
+  useEffect(() => {
+    callApi()
+  }, [])
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -54,6 +55,7 @@ function App() {
           <Route path='cart' element={<CartPage />} />
           <Route path='checkout' element={<CheckoutPage />} />
           <Route path='contact' element={<ContactPage />} />
+          <Route path='login' element={<LoginPage />} />
         </Route>
         {/* end */}
 
@@ -63,7 +65,7 @@ function App() {
         {/* end */}
 
       </Routes>
-      <ToastContainer/>
+      <ToastContainer />
     </>
   )
 }

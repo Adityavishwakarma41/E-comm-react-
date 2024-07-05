@@ -81,29 +81,12 @@ export default function Header({allCategory}) {
                                     <Link to="/shop" className="nav-item nav-link">
                                         Shop
                                     </Link>
-                                    <div className="nav-item dropdown">
-                                        <Link
-                                            to="#"
-                                            className="nav-link dropdown-toggle"
-                                            data-toggle="dropdown"
-                                        >
-                                            Pages
-                                        </Link>
-                                        <div className="dropdown-menu rounded-0 m-0">
-                                            <Link to="/cart" className="dropdown-item">
-                                                Shopping Cart
-                                            </Link>
-                                            <Link to="/checkout" className="dropdown-item">
-                                                Checkout
-                                            </Link>
-                                        </div>
-                                    </div>
                                     <Link to="/contact" className="nav-item nav-link">
                                         Contact
                                     </Link>
                                 </div>
                                 <div className="navbar-nav ml-auto py-0">
-                                    <Link to="" className="nav-item nav-link">
+                                    <Link to="/login" className="nav-item nav-link">
                                         Login
                                     </Link>
                                     <Link to="" className="nav-item nav-link">

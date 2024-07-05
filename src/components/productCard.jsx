@@ -22,9 +22,9 @@ export default function ProductCard({data}) {
                     <div className="card-body border-left border-right text-center p-0 pt-4 pb-3">
                         <h6 className="text-truncate mb-3">{data?.title}</h6>
                         <div className="d-flex justify-content-center">
-                            <h6>${data.price}</h6>
+                            <h6>₹{data.price}</h6>
                             <h6 className="text-muted ml-2">
-                                <del>$123.00</del>
+                                <del>₹123.00</del>
                             </h6>
                         </div>
                     </div>

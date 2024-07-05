@@ -2,6 +2,7 @@ import React from 'react'
 import HeroSection from '../../components/heroSection'
 import { useDispatch, useSelector } from 'react-redux'
 import { DecreaseQyantity, DeleteCartProduct, IncreaseQyantity } from '../../redux/cartSlice'
+import { Link } from 'react-router-dom'
 
 export default function CartPage() {
     const dispatch  = useDispatch()
@@ -36,7 +37,7 @@ export default function CartPage() {
                                             <img src={item.thumbnail} alt="" style={{ width: 50 }} />
                                              {item.title}
                                         </td>
-                                        <td className="align-middle">${item.price}</td>
+                                        <td className="align-middle">${Math.round(item.price)}</td>
                                         <td className="align-middle">
                                             <div
                                                 className="input-group quantity mx-auto"
@@ -59,7 +60,7 @@ export default function CartPage() {
                                                 </div>
                                             </div>
                                         </td>
-                                        <td className="align-middle">${item.price*item.quantity}</td>
+                                        <td className="align-middle">₹{Math.round(item.price*item.quantity)}</td>
                                         <td className="align-middle">
                                             <button onClick={()=>{DeleteCart(item.id)}} className="btn btn-sm btn-primary">
                                                 <i className="fa fa-times" />
@@ -90,21 +91,21 @@ export default function CartPage() {
                             <div className="card-body">
                                 <div className="d-flex justify-content-between mb-3 pt-1">
                                     <h6 className="font-weight-medium">Subtotal</h6>
-                                    <h6 className="font-weight-medium">${Math.floor(totalPrice)}</h6>
+                                    <h6 className="font-weight-medium">₹{Math.round(totalPrice)}</h6>
                                 </div>
                                 <div className="d-flex justify-content-between">
                                     <h6 className="font-weight-medium">Shipping</h6>
-                                    <h6 className="font-weight-medium">$0</h6>
+                                    <h6 className="font-weight-medium">₹0</h6>
                                 </div>
                             </div>
                             <div className="card-footer border-secondary bg-transparent">
                                 <div className="d-flex justify-content-between mt-2">
                                     <h5 className="font-weight-bold">Total</h5>
-                                    <h5 className="font-weight-bold">${Math.floor(totalPrice)}</h5>
+                                    <h5 className="font-weight-bold">₹{Math.round(totalPrice)}</h5>
                                 </div>
-                                <button className="btn btn-block btn-primary my-3 py-3">
+                                <Link to="/checkout" className="btn btn-block btn-primary my-3 py-3">
                                     Proceed To Checkout
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
