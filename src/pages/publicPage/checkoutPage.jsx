@@ -1,10 +1,21 @@
 import React from 'react'
 import HeroSection from '../../components/heroSection'
 import { useSelector } from 'react-redux'
+import { getUserDetails } from '../../helper/utils'
+import { useNavigate } from 'react-router-dom'
 
 export default function CheckoutPage() {
     const cartData = useSelector((store) => store.cart.value)
     const totalPrice = cartData && cartData.reduce((current, item) => current + item.price * item.quantity, 0)
+    const navigate = useNavigate()
+
+    function PlaceOrder() {
+        let user = getUserDetails()
+        if (!user) {
+            navigate("/login")
+        }
+    }
+
     return (
         <>
             <HeroSection heading={"Checkout"} />
@@ -198,9 +209,9 @@ export default function CheckoutPage() {
                                 <h5 className="font-weight-medium mb-3">Products</h5>
                                 {cartData && cartData.map((item, idx) => (
                                     <div className="d-flex justify-content-between" key={idx}>
-                                    <p>{item.title}</p>
-                                    <p>₹{Math.round(item.price*item.quantity)}</p>
-                                </div>
+                                        <p>{item.title}</p>
+                                        <p>₹{Math.round(item.price * item.quantity)}</p>
+                                    </div>
                                 ))}
                                 <hr className="mt-0" />
                                 <div className="d-flex justify-content-between mb-3 pt-1">
@@ -223,9 +234,9 @@ export default function CheckoutPage() {
                             <div className="card-header bg-secondary border-0">
                                 <h4 className="font-weight-semi-bold m-0">Payment</h4>
                             </div>
-                            
+
                             <div className="card-footer border-secondary bg-transparent">
-                                <button className="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">
+                                <button className="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3" onClick={PlaceOrder}>
                                     Place Order
                                 </button>
                             </div>
