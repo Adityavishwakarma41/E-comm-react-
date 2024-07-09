@@ -36,8 +36,14 @@ const slice = createSlice({
     DeleteCartProduct: (state, action) => {
       state.value = state.value.filter((item) => item.id !== action.payload)
     },
+    fetchAll: (state, action) => {
+      let data = action.payload
+      if (data.length > 0) {
+        state.value = data
+      }
+    }
   }
 })
 
-export const { addToCart, IncreaseQyantity, DecreaseQyantity, DeleteCartProduct } = slice.actions;
+export const { addToCart, IncreaseQyantity, DecreaseQyantity, DeleteCartProduct,fetchAll } = slice.actions;
 export default slice.reducer;
