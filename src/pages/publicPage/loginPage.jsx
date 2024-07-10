@@ -18,10 +18,12 @@ export default function LoginPage() {
     async function Submit(e) {
         e.preventDefault()
         let res = await postRequest(Urls.userLogin, user)
-        if (res) {
+        if (res.message) {
+            toast.error(res.message)
+        }else{
             toast.success("Logged In")
             localStorage.setItem("user", JSON.stringify(res))
-            navigate(-1)
+            navigate("/")
         }
     }
 
@@ -57,6 +59,7 @@ export default function LoginPage() {
                                     <button className='btn btn-outline-info col-8'>Login</button>
                                 </div>
                             </form>
+                            <Link to={"/sign-up"}>Or Sign Up</Link>
                         </div>
                     </div>
                 </div>

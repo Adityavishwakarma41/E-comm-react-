@@ -20,7 +20,7 @@ export default function PublicRoute({ allCategory }) {
       return;
     }
     try {
-      let res = await axiosClient(`${Urls.getAllCart}/5`)
+      let res = await axiosClient.delete(`${Urls.getAllCart}`)
       if (res.data) {
         console.log(res.data);
         dispatch(fetchAll(res.data))

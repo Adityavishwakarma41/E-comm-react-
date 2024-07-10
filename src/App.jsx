@@ -15,6 +15,7 @@ import { getRequest } from './webClient/apiClient'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoginPage from './pages/publicPage/loginPage'
+import SignUpPage from './pages/publicPage/signUpPage'
 
 function App() {
   const path = useLocation().pathname
@@ -56,6 +57,7 @@ function App() {
           <Route path='checkout' element={<CheckoutPage />} />
           <Route path='contact' element={<ContactPage />} />
           <Route path='login' element={<LoginPage />} />
+          <Route path='sign-up' element={<SignUpPage />} />
         </Route>
         {/* end */}
 
