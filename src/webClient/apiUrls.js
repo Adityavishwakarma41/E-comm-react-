@@ -4,5 +4,6 @@ export const Urls = {
     userLogin: 'https://dummyjson.com/auth/login',
     add_To_Cart: '/carts/add',
     getAllCart: '/users/209',
-    sign_Up: '/users/add'
+    sign_Up: '/users/add',
+    add_product : '/products/add'
 }

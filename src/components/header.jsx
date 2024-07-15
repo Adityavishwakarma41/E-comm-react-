@@ -12,7 +12,7 @@ export default function Header({ allCategory }) {
         setUser(getUserDetails())
     }, [path])
 
-    function LogOut(){
+    function LogOut() {
         localStorage.clear()
         navigate("/login")
     }
@@ -98,14 +98,20 @@ export default function Header({ allCategory }) {
                                     </Link>
                                 </div>
                                 <div className="navbar-nav ml-auto py-0">
-                                    {user && user ? <button className='btn btn-light' onClick={LogOut}>Log Out ({user.firstName})</button> : <>
-                                        <Link to="/login" className="nav-item nav-link">
-                                            Login
-                                        </Link>
-                                        <Link to="" className="nav-item nav-link">
-                                            Register
-                                        </Link>
-                                    </>}
+                                    {user && user ?
+                                        <>
+                                            <Link to="/add-product" className="nav-item nav-link">
+                                                Add Product
+                                            </Link>
+                                            <button className='btn btn-light' onClick={LogOut}>Log Out ({user.firstName})</button>
+                                        </> : <>
+                                            <Link to="/login" className="nav-item nav-link">
+                                                Login
+                                            </Link>
+                                            <Link to="/sign-up" className="nav-item nav-link">
+                                                Register
+                                            </Link>
+                                        </>}
                                 </div>
                             </div>
                         </nav>
