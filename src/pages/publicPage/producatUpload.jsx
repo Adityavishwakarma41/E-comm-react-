@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import HeroSection from '../../components/heroSection'
 import axiosClient from '../../webClient/axiosClient'
 import { Urls } from '../../webClient/apiUrls'
@@ -14,7 +14,7 @@ export default function ProducatUpload() {
         setProductInfo({ ...ProductInfo, [name]: files ? files[0] : value })
     }
 
-    function Submit(e) {
+  const Submit =  useCallback(function (e) {
         e.preventDefault()
         if (ProductInfo.thumbnail.type !== "application/pdf" ) {
             toast.error("only pdf file accepted")
@@ -28,7 +28,7 @@ export default function ProducatUpload() {
         formData.append("title",ProductInfo.title)
         formData.append("thumbnail",ProductInfo.thumbnail)
 
-    }
+    },[ProductInfo])
 
     console.log(ProductInfo);
     return (
