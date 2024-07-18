@@ -10,10 +10,7 @@ export default function CheckoutPage() {
     const navigate = useNavigate()
 
     function PlaceOrder() {
-        let user = getUserDetails()
-        if (!user) {
-            navigate("/login")
-        }
+        
     }
 
     return (

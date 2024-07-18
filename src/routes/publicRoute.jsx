@@ -14,11 +14,6 @@ export default function PublicRoute({ allCategory }) {
   const dispatch = useDispatch()
 
   async function fetchCarts() {
-    let user = getUserDetails()
-    if (!user) {
-      navigate("/login");
-      return;
-    }
     try {
       let res = await axiosClient.delete(`${Urls.getAllCart}`)
       if (res.data) {

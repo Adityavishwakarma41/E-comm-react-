@@ -55,7 +55,6 @@ function App() {
             <Route path=':id' element={<ProductDetails />} />
           </Route>
           <Route path='cart' element={<CartPage />} />
-          <Route path='checkout' element={<CheckoutPage />} />
           <Route path='contact' element={<ContactPage />} />
           <Route path='login' element={<LoginPage />} />
           <Route path='sign-up' element={<SignUpPage />} />
@@ -64,7 +63,8 @@ function App() {
         {/* end */}
 
         {/* private route */}
-        <Route path='/' element={<PrivateRoute />}>
+        <Route path='/checkout' element={<PrivateRoute />}>
+          <Route index element={<CheckoutPage />} />
         </Route>
         {/* end */}
 

@@ -83,7 +83,7 @@ export default function Header({ allCategory }) {
                                 <span className="navbar-toggler-icon" />
                             </button>
                             <div
-                                className="collapse navbar-collapse justify-content-between"
+                                className="collapse navbar-collapse justify-between"
                                 id="navbarCollapse"
                             >
                                 <div className="navbar-nav mr-auto py-0">
